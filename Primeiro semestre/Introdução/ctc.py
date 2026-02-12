@@ -1,5 +1,19 @@
 from datetime import datetime
+import os
+import sys
+from time import sleep
 
+if sys.platform != "win32":
+    sistema_operacional = 'win'
+
+else:
+    sistema_operacional = 'os'
+
+def limpar_console():
+    if sistema_operacional == 'win':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 class Canavieiro():
     def __init__(
@@ -46,4 +60,8 @@ def buscar_canavieiro(frota : str, canavieiros : list[Canavieiro]):
         if canavieiro.frota == frota:
             return canavieiro
     return None
+
+print("Olá, sejá muito bem vindo ao sistem de pesagem do Lucas.")
+sleep(5)
+limpar_console()
 
